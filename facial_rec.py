@@ -42,7 +42,7 @@ def backward_prop(X, Y, parameters, cache):
     L = len(parameters)//2
     m = Y.shape[1]
     AL = cache["A"+str(L)]
-    dZ = np.multiply(AL-Y,np.multiply(AL,1-AL))
+    dZ = np.multiply(AL - Y, np.multiply(AL, 1 - AL))
     grads["dW" + str(L)] = (1/m) * np.dot(dZ, cache["A" + str(L - 1)].T)
     grads["db" + str(L)]=(1/m) * np.sum(dZ, axis = 1, keepdims = True)
     cache["A0"] = X
@@ -56,8 +56,8 @@ def backward_prop(X, Y, parameters, cache):
     return grads
 
 def update_parameters(parameters, grads, learning_rate):
-    L = len(parameters)//2
-    for i in range(1, L+1):
+    L = len(parameters) // 2
+    for i in range(1, L + 1):
         parameters["W" + str(i)] = parameters["W"+str(i)] - (learning_rate * grads["dW" + str(i)])
         parameters["b" + str(i)] = parameters["b" + str(i)] - (learning_rate * grads["db" + str(i)])
     return parameters
