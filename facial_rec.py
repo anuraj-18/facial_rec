@@ -63,7 +63,7 @@ def testOutput(nn):
 
     while True:
         X = create_input_data(video)
-        s = nn.test_output(X, layer_dims)
+        s = nn.test_output(X)
         m = np.amax(s)
         print(s)
         for i in range(len(s)):

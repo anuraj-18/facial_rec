@@ -54,7 +54,7 @@ class ANN:
             self.params["W" + str(i)] = self.params["W"+str(i)] - (learning_rate * grads["dW" + str(i)])
             self.params["b" + str(i)] = self.params["b" + str(i)] - (learning_rate * grads["db" + str(i)])
 
-    def test_output(self, X, layer_dims):
+    def test_output(self, X):
         A = X
         L = len(self.params) // 2
         for i in range(1, L + 1):
