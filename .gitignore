@@ -1,0 +1,4 @@
+images
+*.txt
+captureImg.py
+__pycache__

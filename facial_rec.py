@@ -5,7 +5,7 @@ from nn import ANN
 
 def init_train_data():
     X = []
-    for i in range(1, 11):
+    for i in range(12, 22):
         name = "images/shubham" + str(i) + ".jpg"
         arr = cv2.imread(str(name)) # 640x480x3 array
         arr = np.reshape(arr,(1,480*640*3))/255
@@ -83,5 +83,5 @@ def testOutput(nn):
 layer_dims = [480*640*3, 7, 7, 4]
 X, Y = init_train_data()
 nn = ANN(layer_dims)
-nn.getWeights()
+nn.train(X,Y)
 testOutput(nn)
